@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="icon" href="/logo.ico">
+    <title>Jouney of Oberlin</title>
+    <meta property="og:title" content="Jouney of Oberlin" />
+    <meta property="og:description" content="Journey through Oberlin Life" />
+    <style>
+      html, body {
+        margin: 0;
+        overflow: hidden;
+      }
+ 
+      canvas {
+        width: 560px;
+        height: 560px;
+      }
+      #container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+     </style>
+  </head>
+  <body style="text-align: center">
+    <h1>Journey of Oberlin</h1>
+    <h3>by SeBeom Lee</h3>
+    <div id="container">
+      <canvas id="unity-canvas"></canvas>
+    </div>
+
+    <script src="Build/web.loader.js"></script>
+    <script>
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+      }
+
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/web.data.br",
+        frameworkUrl: "Build/web.framework.js.br",
+        codeUrl: "Build/web.wasm.br",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "FinalProject",
+        productVersion: "0.1.0",
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      });
+    </script>
+  </body>
+</html>
