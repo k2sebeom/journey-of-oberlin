@@ -20,23 +20,23 @@ public class GameManager : MonoBehaviour
 
     private Vector2 range = new Vector2();
 
-    private int[,] matrix = new int[100, 100];
+    private int[,] matrix = new int[10, 10];
 
     public void LogPosition(Vector3 pos) {
         Vector3 rel = pos - startPivot.position;
         Vector3 normalized = new Vector2(rel.x / range.x, rel.y / range.y);
-        normalized *= 100;
+        normalized *= 10;
         int i = Mathf.FloorToInt(normalized.x);
         int j = Mathf.FloorToInt(normalized.y);
-        if (i < 100 && j < 100) {
+        if (i < 10 && j < 10) {
             matrix[i, j] = 1;
         }
     }
 
     public int GetExp() {
         int perc = 0;
-        for(int i = 0; i < 100; i++) {
-            for(int j = 0; j < 100; j++) {
+        for(int i = 0; i < 10; i++) {
+            for(int j = 0; j < 10; j++) {
                 perc += matrix[i, j];
             }
         }

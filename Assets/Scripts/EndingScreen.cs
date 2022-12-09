@@ -30,7 +30,7 @@ public class EndingScreen : MonoBehaviour
     void Start()
     {
         int exp = manager.GetExp();
-        contents[1].SetArg($"{exp / 100}.{exp % 100}%");
+        contents[1].SetArg($"{exp}%");
         contents[2].SetArg($"{Portal.starSoFar}");
         TimeSpan diff = manager.playTime;
         contents[3].SetArg($"{Convert.ToInt32(diff.TotalMinutes)} min {Convert.ToInt32(diff.TotalSeconds) % 60} sec");
